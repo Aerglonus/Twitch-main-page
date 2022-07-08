@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: "Roobert";
+  src: url("../public/Fonts/Roobert-Medium.otf");
+  font-family: "RoobertThin";
+  rc: url("../public/Fonts/Roobert-Light.otf");
+}
+* {
+  @apply box-border;
+}
+html {
+  @apply text-white scroll-smooth font-Roobert;
+}
+body {
+  @apply bg-[#f7f7f8] dark:bg-[#0e0e10];
+  overflow-x: hidden;
+}
+
+.stream {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.stream:before,
+.stream:after {
+  content: "";
+  display: block;
+  background-color: #bed7f3;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  transition: all 0.15s ease;
+}
+
+.stream:before {
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  transform: rotate(-45deg) scale(0);
+}
+
+.stream:after {
+  right: 0;
+  bottom: 0;
+  transform-origin: bottom right;
+  transform: rotate(45deg) scale(0);
+}
+.stream:hover .stream__thumbnail {
+  transform: translate(6px, -6px);
+}
+
+.stream:hover:before {
+  transform: rotate(-45deg) scale(1);
+}
+
+.stream:hover:after {
+  transform: rotate(45deg) scale(1);
+}
+.stream__thumbnail {
+  display: block;
+  transform: translate(0, 0);
+  transition: all 0.15s ease;
+  position: relative;
+  z-index: 8;
+}
